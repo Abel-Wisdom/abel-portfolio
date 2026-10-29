@@ -1,0 +1,73 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Project {
+  id               String     @id @default(cuid())
+  title            String
+  slug             String     @unique
+  category         String     @default("Full-Stack Web Application")
+  shortDescription String
+  description      String     @db.Text
+  thumbnail        String?
+  gallery          String[]   @default([])
+  liveUrl          String?
+  sourceUrl        String?
+  featured         Boolean    @default(false)
+  published        Boolean    @default(false)
+  technologies     String[]
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  caseStudy        CaseStudy?
+}
+
+
+model CaseStudy {
+  id           String   @id @default(cuid())
+  projectId    String   @unique
+  overview     String   @db.Text
+  problem      String   @db.Text
+  solution     String   @db.Text
+  role         String?
+  architecture String?  @db.Text
+  challenges   String?  @db.Text
+  learnings    String?  @db.Text
+  project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PortfolioSettings {
+  id               String   @id @default("default")
+  fullName         String   @default("")
+  professionalTitle String  @default("")
+  biography        String   @default("") @db.Text
+  location         String   @default("")
+  email            String   @default("")
+  phone            String   @default("")
+  githubUrl        String   @default("")
+  linkedinUrl      String   @default("")
+  profileImageUrl  String?
+  resumeUrl        String?
+  updatedAt        DateTime @updatedAt
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  role      String   @default("")
+  company   String   @default("")
+  quote     String   @db.Text
+  photoUrl  String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

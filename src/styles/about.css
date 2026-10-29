@@ -1,0 +1,150 @@
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-heading {
+  max-width: 720px;
+  margin-bottom: 38px;
+}
+
+.about-heading .section-title {
+  max-width: 650px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.about-story {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(57 132 255 / 10%),
+      transparent 45%
+    ),
+    var(--bg-card);
+}
+
+.about-story-icon,
+.about-highlight-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #a9c9ff;
+  background: rgb(57 132 255 / 12%);
+  border: 1px solid rgb(57 132 255 / 20%);
+  border-radius: 12px;
+}
+
+.about-story-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 24px;
+}
+
+.about-story h3 {
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+  line-height: 1.45;
+}
+
+.about-story p,
+.about-highlight p {
+  color: var(--text-secondary);
+  font-size: 0.91rem;
+  line-height: 1.85;
+}
+
+.about-story p + p {
+  margin-top: 14px;
+}
+
+.about-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 26px;
+  color: #8bb8ff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.about-project-link:hover {
+  gap: 12px;
+  color: #fff;
+}
+
+.about-highlights {
+  display: grid;
+  gap: 16px;
+}
+
+.about-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  padding: 23px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.about-highlight:hover {
+  transform: translateY(-3px);
+  border-color: #315580;
+}
+
+.about-highlight-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.about-highlight h3 {
+  margin: 2px 0 8px;
+  font-size: 1rem;
+}
+
+.about-highlight p {
+  font-size: 0.86rem;
+}
+
+@media (max-width: 850px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-heading {
+    margin-bottom: 26px;
+  }
+
+  .about-story {
+    padding: 24px;
+  }
+
+  .about-highlight {
+    gap: 13px;
+    padding: 19px;
+  }
+
+  .about-highlight-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

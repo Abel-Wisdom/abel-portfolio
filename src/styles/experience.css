@@ -1,0 +1,203 @@
+
+.experience-section {
+  overflow: hidden;
+}
+
+.experience-heading {
+  max-width: 720px;
+  margin-bottom: 40px;
+}
+
+.experience-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  align-items: start;
+  gap: 25px;
+}
+
+.experience-timeline {
+  display: grid;
+  gap: 24px;
+}
+
+.experience-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 15px;
+}
+
+.experience-item:not(:last-child)::after {
+  position: absolute;
+  top: 49px;
+  bottom: -25px;
+  left: 21px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    #3984ff,
+    #17304b
+  );
+  content: "";
+}
+
+.experience-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: #a9c9ff;
+  background: #10243b;
+  border: 1px solid #315580;
+  border-radius: 12px;
+}
+
+.experience-card {
+  min-width: 0;
+  padding: 27px;
+}
+
+.experience-date {
+  color: #8bb8ff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.experience-card h3 {
+  margin-top: 12px;
+  font-size: 1.12rem;
+  line-height: 1.5;
+}
+
+.experience-organization {
+  margin-top: 5px;
+  color: #aabbd0;
+  font-size: 0.84rem;
+}
+
+.experience-description {
+  margin-top: 17px;
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  line-height: 1.85;
+}
+
+.experience-achievements {
+  display: grid;
+  gap: 11px;
+  margin-top: 19px;
+}
+
+.experience-achievements li {
+  position: relative;
+  padding-left: 18px;
+  color: #cbd7e6;
+  font-size: 0.83rem;
+  line-height: 1.7;
+}
+
+.experience-achievements li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: #6da5ff;
+  border-radius: 50%;
+  content: "";
+}
+
+.experience-note {
+  position: sticky;
+  top: 105px;
+  padding: 28px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgb(139 92 246 / 12%),
+      transparent 48%
+    ),
+    var(--bg-card);
+}
+
+.experience-note-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 25px;
+  color: #c3a8ff;
+  background: rgb(139 92 246 / 12%);
+  border: 1px solid rgb(139 92 246 / 25%);
+  border-radius: 13px;
+}
+
+.experience-note h3 {
+  margin-top: 13px;
+  font-size: 1.25rem;
+  line-height: 1.55;
+}
+
+.experience-note > p:not(.section-label) {
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 0.87rem;
+  line-height: 1.85;
+}
+
+.experience-note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 23px;
+}
+
+.experience-note-tags span {
+  padding: 7px 10px;
+  color: #c8b7ff;
+  background: rgb(139 92 246 / 9%);
+  border: 1px solid rgb(139 92 246 / 20%);
+  border-radius: 6px;
+  font-size: 0.73rem;
+}
+
+@media (max-width: 850px) {
+  .experience-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-note {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-item {
+    grid-template-columns: 35px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .experience-marker {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+  }
+
+  .experience-marker svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .experience-item:not(:last-child)::after {
+    top: 40px;
+    left: 17px;
+  }
+
+  .experience-card,
+  .experience-note {
+    padding: 21px;
+  }
+}
